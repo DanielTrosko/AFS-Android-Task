@@ -73,31 +73,14 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
                 } else {
 
                     if (textId.getText().equals(StatusType.OPEN.toString())) {
-                        textId.setText(StatusType.TRAVELLING.toString());
-                        button.setText("START WORK");
-                        finalConvertView.setBackgroundColor(Color.YELLOW);
-                        taskList.get(position).setStatus(StatusType.TRAVELLING);
-                        taskList.get(position).setChangeStatus("START WORK");
-                        acceptPosition = position;
-                        inProgressTask = true;
+                        changeStatus(textId, button, finalConvertView, position, StatusType.TRAVELLING, "START WORK", Color.YELLOW, position, true);
 
                     } else if (textId.getText().equals(StatusType.TRAVELLING.toString())) {
-                        textId.setText(StatusType.WORKING.toString());
-                        button.setText("STOP");
-                        finalConvertView.setBackgroundColor(Color.GREEN);
-                        taskList.get(position).setStatus(StatusType.WORKING);
-                        taskList.get(position).setChangeStatus("STOP");
-                        acceptPosition = position;
-                        inProgressTask = true;
+                        changeStatus(textId, button, finalConvertView, position, StatusType.WORKING, "STOP", Color.GREEN, position, true);
 
                     } else if (textId.getText().equals(StatusType.WORKING.toString())) {
-                        textId.setText(StatusType.OPEN.toString());
-                        button.setText("START TRAVEL");
-                        finalConvertView.setBackgroundColor(Color.WHITE);
-                        taskList.get(position).setStatus(StatusType.OPEN);
-                        taskList.get(position).setChangeStatus("START TRAVEL");
-                        acceptPosition = -1;
-                        inProgressTask = false;
+                        changeStatus(textId, button, finalConvertView, position, StatusType.OPEN, "START TRAVEL", Color.WHITE, -1, false);
+
 
                     }
                 }
@@ -107,5 +90,19 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
 
 
         return convertView;
+    }
+
+    private void changeStatus(TextView textId, Button button, View finalConvertView, int position, StatusType status, String btnName, int colour, int lockUnlock, boolean progressTask) {
+        textId.setText(status.toString());
+        button.setText(btnName);
+        finalConvertView.setBackgroundColor(colour);
+        taskList.get(position).setStatus(status);
+        taskList.get(position).setChangeStatus(btnName);
+        lockUnlockTask(lockUnlock, progressTask);
+    }
+
+    private void lockUnlockTask(int position, boolean b) {
+        acceptPosition = position;
+        inProgressTask = b;
     }
 }
