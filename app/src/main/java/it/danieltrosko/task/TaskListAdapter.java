@@ -68,9 +68,6 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
             @Override
             public void onClick(View v) {
 
-                System.out.println(StatusType.OPEN);
-                System.out.println(StatusType.TRAVELLING);
-                System.out.println(StatusType.WORKING);
                 if (acceptPosition != position & inProgressTask) {
                     Toast.makeText(myContext, "Only one task can have a status different than OPEN", Toast.LENGTH_LONG).show();
                 } else {

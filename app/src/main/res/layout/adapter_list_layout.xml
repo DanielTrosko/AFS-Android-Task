@@ -9,7 +9,7 @@
     <TextView
         android:gravity="center"
         android:textAlignment="center"
-        android:text="TextView1"
+        android:text="Task name"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:id="@+id/task_name"
@@ -23,9 +23,9 @@
 
         <TextView
             android:gravity="center"
-            android:text="TextView2"
+            android:text="Status"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="60dp"
             android:id="@+id/status"/>
 
 
