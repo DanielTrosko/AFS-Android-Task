@@ -2,37 +2,33 @@ package it.danieltrosko.task;
 
 public class Task {
     private String name;
-    private String id;
-    private String button;
+    private StatusType status;
+    private String changeStatus;
 
-
-    public Task(String name, String id, String button) {
+    public Task(String name, StatusType status, String changeStatus) {
         this.name = name;
-        this.id = id;
-        this.button = button;
+        this.status = status;
+        this.changeStatus = changeStatus;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+
+    public StatusType getStatus() {
+        return status;
     }
 
-    public String getId() {
-        return id;
+    public void setStatus(StatusType status) {
+        this.status = status;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getChangeStatus() {
+        return changeStatus;
     }
 
-    public String getButton() {
-        return button;
-    }
-
-    public void setButton(String button) {
-        this.button = button;
+    public void setChangeStatus(String changeStatus) {
+        this.changeStatus = changeStatus;
     }
 }

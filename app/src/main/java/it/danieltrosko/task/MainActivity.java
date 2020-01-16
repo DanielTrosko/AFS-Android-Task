@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
         final ArrayList<Task> taskList = new ArrayList<>();
 
         for (int i = 1; i <21; i++) {
-            Task task = new Task("Task" + i,"OPEN", "START TRAVEL");
+            Task task = new Task("Task" + i,StatusType.OPEN, "START TRAVEL");
             taskList.add(task);
         }
 
