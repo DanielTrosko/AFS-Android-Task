@@ -53,7 +53,7 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
 
         switch (id) {
             case "TRAVELLING":
-                finalConvertView.setBackgroundColor(Color.BLUE);
+                finalConvertView.setBackgroundColor(Color.YELLOW);
                 break;
             case "WORKING":
                 finalConvertView.setBackgroundColor(Color.GREEN);
@@ -76,7 +76,7 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
                     if (textId.getText().equals("OPEN")) {
                         textId.setText("TRAVELLING");
                         button.setText("START WORK");
-                        finalConvertView.setBackgroundColor(Color.BLUE);
+                        finalConvertView.setBackgroundColor(Color.YELLOW);
                         taskList.get(position).setId("TRAVELLING");
                         taskList.get(position).setButton("START WORK");
                         accept = position;
