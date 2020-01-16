@@ -73,13 +73,13 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
                 } else {
 
                     if (textId.getText().equals(StatusType.OPEN.toString())) {
-                        changeStatus(textId, button, finalConvertView, position, StatusType.TRAVELLING, "START WORK", Color.YELLOW, position, true);
+                        changeStatus(textId, button, finalConvertView, position, StatusType.TRAVELLING, "START WORK", Color.YELLOW, true);
 
                     } else if (textId.getText().equals(StatusType.TRAVELLING.toString())) {
-                        changeStatus(textId, button, finalConvertView, position, StatusType.WORKING, "STOP", Color.GREEN, position, true);
+                        changeStatus(textId, button, finalConvertView, position, StatusType.WORKING, "STOP", Color.GREEN, true);
 
                     } else if (textId.getText().equals(StatusType.WORKING.toString())) {
-                        changeStatus(textId, button, finalConvertView, position, StatusType.OPEN, "START TRAVEL", Color.WHITE, -1, false);
+                        changeStatus(textId, button, finalConvertView, position, StatusType.OPEN, "START TRAVEL", Color.WHITE, false);
 
 
                     }
@@ -92,17 +92,13 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
         return convertView;
     }
 
-    private void changeStatus(TextView textId, Button button, View finalConvertView, int position, StatusType status, String btnName, int colour, int lockUnlock, boolean progressTask) {
+    private void changeStatus(TextView textId, Button button, View finalConvertView, int position, StatusType status, String btnName, int colour, boolean progressTask) {
         textId.setText(status.toString());
         button.setText(btnName);
         finalConvertView.setBackgroundColor(colour);
         taskList.get(position).setStatus(status);
         taskList.get(position).setChangeStatus(btnName);
-        lockUnlockTask(lockUnlock, progressTask);
-    }
-
-    private void lockUnlockTask(int position, boolean b) {
         acceptPosition = position;
-        inProgressTask = b;
+        inProgressTask = progressTask;
     }
 }
